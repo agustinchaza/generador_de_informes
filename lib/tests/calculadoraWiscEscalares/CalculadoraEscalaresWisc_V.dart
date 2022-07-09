@@ -11,6 +11,28 @@ class calculadoraEscalaresWisc_V{
   }
 
 
+  List<int> calcularPuntuacionesEscalares(){
+    List<int> puntuacionesEscalares=<int>[15];
+    List<List<int>> tablaConversion=TablasDeConversion(); //Tabla de conversion a puntuaciones escalares
+
+    for(int i=0;i<15;i++){
+      for(int j=0;j<19;j++){
+        if(puntuacionesDirectas[i]>tablaConversion[i][j]){
+          puntuacionesEscalares[i]=j+1; //Se suma 1 porque la tabla de conversion empieza en 0
+        }
+      }
+    }
+
+
+
+    return puntuacionesEscalares;
+  }
+
+
+
+
+
+
   List<List<int>> TablasDeConversion(){
 
 
@@ -53,6 +75,7 @@ class calculadoraEscalaresWisc_V{
       //excepcion de edad cronologica fuera de rango
       throw Exception("Edad cronologica fuera de rango");
     }
+
   }
 
   List<List<int>> tabla6_0to6_3(){

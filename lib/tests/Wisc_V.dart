@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:generador_de_informes/tests/test.dart';
 
+import 'calculadoraWiscEscalares/CalculadoraEscalaresWisc_V.dart';
+
 
 
 class Wisc_V extends Test{
 
 
   //arreglo de 10 enteros
-  int puntuacionesDirectas=List.filled(15, null, growable: false) as int;
-  int puntuacionesEscalares=List.filled(15, null, growable: false) as int;
+  List<int> puntuacionesDirectas=<int>[15];
+  List<int> puntuacionesEscalares=<int>[15];
   late DateTime edadCronologica;
 
 
@@ -26,7 +28,7 @@ class Wisc_V extends Test{
 
   }
 
-  setDatos(int puntuacionesDirectas){
+  setDatos(List<int> puntuacionesDirectas){
     this.puntuacionesDirectas=puntuacionesDirectas;
   }
 
@@ -37,7 +39,8 @@ class Wisc_V extends Test{
 
 
   calcularPuntuacionEscalar(){
-
+    calculadoraEscalaresWisc_V calculadora=calculadoraEscalaresWisc_V(puntuacionesDirectas, edadCronologica);
+    puntuacionesEscalares=calculadora.calcularPuntuacionesEscalares();
   }
 
 
